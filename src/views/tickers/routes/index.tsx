@@ -1,11 +1,11 @@
 import { Route, Routes } from 'react-router';
 
-import Tikers from '../Tikers';
+import Tickers from '../Tickers';
 
 export const TickersRoutes = () => {
   return (
     <Routes>
-      <Route index element={<Tikers />} />
+      <Route index element={<Tickers />} />
     </Routes>
   );
 };
