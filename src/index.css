@@ -17,7 +17,7 @@ body {
   --text-color: hsl(0, 0%, 75%);
   --body-color: #1c1c1e;
   --shades_0: #fff;
-  --shades_100: #000;
+  --shades_100: #111;
   --z-fixed: 100;
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;

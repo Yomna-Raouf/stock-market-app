@@ -16,4 +16,5 @@ export type Ticker = {
 export type TickerCardProps = {
   name: string;
   ticker: string;
+  status: string;
 };

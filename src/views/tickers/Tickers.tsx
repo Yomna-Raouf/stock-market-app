@@ -9,7 +9,14 @@ const Tickers = () => {
   return (
     <div>
       <div className={styles.listGrid}>
-        {data?.results?.map((result) => <TickerCard key={result.name} ticker={result.ticker} name={result.name} />)}
+        {data?.results?.map((result) => (
+          <TickerCard
+            key={result.name}
+            ticker={result.ticker}
+            name={result.name}
+            status={result.active ? 'actively traded' : 'delisted'}
+          />
+        ))}
       </div>
     </div>
   );
