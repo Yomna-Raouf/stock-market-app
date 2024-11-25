@@ -3,10 +3,10 @@ import Axios, { AxiosError, InternalAxiosRequestConfig } from 'axios';
 import { queryClient } from './react-query';
 import { clearCookie, getCookie } from '@/utils/storage';
 
-const { API_BASE, API_VERSION } = import.meta.env;
+const { VITE_API_BASE, VITE_API_VERSION } = import.meta.env;
 
 export const axiosClient = Axios.create({
-  baseURL: `${API_BASE}/${API_VERSION}`,
+  baseURL: `${VITE_API_BASE}/${VITE_API_VERSION}`,
 });
 
 export const authRequestInterceptor = (config: InternalAxiosRequestConfig) => {

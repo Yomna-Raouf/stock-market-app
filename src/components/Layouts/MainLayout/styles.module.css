@@ -5,6 +5,7 @@
   padding: 32px 24px;
   height: calc(100dvh - 70px);
   box-shadow: 0 0.125rem 0.25rem rgb(29 29 31 / 50%);
+  overflow-y: scroll;
 }
 
 @media (max-width: 425px) {

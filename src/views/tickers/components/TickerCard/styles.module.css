@@ -1,0 +1,51 @@
+.card {
+  position: relative;
+  background: rgb(173 172 177 / 20%);
+  border-radius: 24px;
+
+  padding: 8px 12px;
+
+  height: 170px;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+h3,
+p {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  span {
+    text-align: center;
+  }
+}
+
+h3 {
+  span:first-child {
+    color: #f16f48;
+  }
+}
+
+p {
+  span:first-child {
+    color: #ad8af9;
+  }
+}
+
+.status {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  padding: 4px 12px;
+
+  background: #adacb1;
+  border-radius: inherit;
+  border-top-right-radius: 0;
+}
