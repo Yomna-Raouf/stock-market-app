@@ -1,24 +1,53 @@
+import { useEffect } from 'react';
+
+import { useInView } from 'react-intersection-observer';
+
 import { useGetTickers } from './api/getTickers';
 import TickerCard from './components/TickerCard/TickerCard';
 
 import styles from './styles.module.css';
 
 const Tickers = () => {
-  const { data /*  isLoading, error */ } = useGetTickers({});
+  const { ref: loadMoreRef, inView } = useInView();
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isSuccess, isLoading, error, isError } = useGetTickers(
+    {},
+  );
+
+  useEffect(() => {
+    if (inView && !isFetchingNextPage && hasNextPage) {
+      fetchNextPage();
+    }
+  }, [inView]);
 
   return (
-    <div>
-      <div className={styles.listGrid}>
-        {data?.results?.map((result) => (
-          <TickerCard
-            key={result.name}
-            ticker={result.ticker}
-            name={result.name}
-            status={result.active ? 'actively traded' : 'delisted'}
-          />
-        ))}
-      </div>
-    </div>
+    <>
+      {isError && (
+        <p>
+          {error?.status === 429
+            ? "You've exceeded the maximum requests per minute, please wait ...."
+            : 'There was a problem with fetching data'}
+        </p>
+      )}
+      {isLoading && <p>Fetching data</p>}
+      {isSuccess && (
+        <div>
+          <div className={styles.listGrid}>
+            {data?.pages?.map((page) => {
+              return page?.results?.map((result) => (
+                <TickerCard
+                  key={result.name}
+                  ticker={result.ticker}
+                  name={result.name}
+                  status={result.active ? 'actively traded' : 'delisted'}
+                />
+              ));
+            })}
+          </div>
+          <div ref={loadMoreRef}></div>
+          {isFetchingNextPage ? <span> Loading...</span> : null}
+        </div>
+      )}
+    </>
   );
 };
 
