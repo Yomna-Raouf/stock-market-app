@@ -1,0 +1,19 @@
+{
+  "name": "e2e",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cy:dev": "cypress open --config-file config/dev.config.ts -c specPattern=[**/*.cy.ts] --e2e --browser electron",
+    "cy:headless": "cypress run --config-file config/ci.config.ts -c specPattern=[**/*.cy.ts] --e2e"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^13.16.0"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  }
+}

@@ -8,9 +8,13 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+./E2E/node_modules
 dist
+build
 dist-ssr
 *.local
+
+./E2E/cypress/downloads
 
 # Editor directories and files
 .vscode/*

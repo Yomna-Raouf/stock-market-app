@@ -33,6 +33,7 @@ export default tseslint.config(
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       'import/no-extraneous-dependencies': 0,
       'react/jsx-filename-extension': 0,
+      '@typescript-eslint/no-namespace': 'off',
       '@typescript-eslint/naming-convention': [
         'error',
         {
