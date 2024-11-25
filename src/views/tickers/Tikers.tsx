@@ -1,5 +1,9 @@
 const Tikers = () => {
-  return <div>Tikers</div>;
+  return (
+    <div>
+      <div>Tikers</div>
+    </div>
+  );
 };
 
 export default Tikers;
