@@ -1,0 +1,23 @@
+.header {
+  height: 50px;
+  padding: 12px 35px 0 16px;
+  background: var(--body-color);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90%;
+}
+
+.logoContainer {
+  color: var(--primary-color);
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-family: sans-serif;
+}
+
+.navLink {
+  color: var(--shades_0);
+}

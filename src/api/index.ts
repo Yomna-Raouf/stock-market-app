@@ -27,7 +27,6 @@ axiosClient.interceptors.response.use(
   (error: AxiosError) => {
     if (error.response?.status === 401) {
       clearCookie('access_token');
-      clearCookie('refresh_token');
       localStorage.clear();
       queryClient.clear();
     }
