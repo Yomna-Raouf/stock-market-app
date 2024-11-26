@@ -19,6 +19,8 @@ const Tickers = () => {
   const debouncedSearchToken = useDebounce(searchToken, 1000);
 
   // TODO: sanitize search token
+  // TODO: move error response to the Hook
+  // TODO: create separate components for error handling and loading
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isSuccess, isLoading, error, isError } = useGetTickers({
     search: debouncedSearchToken,
   });
