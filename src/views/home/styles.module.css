@@ -1,0 +1,14 @@
+.container {
+  height: 100%;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 576px) {
+  .container {
+    svg {
+      width: 100% !important;
+    }
+  }
+}

@@ -8,11 +8,24 @@
   overflow-y: scroll;
 }
 
-@media (max-width: 425px) {
+.developerName {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  position: absolute;
+  bottom: 0;
+  padding: 8px;
+}
+
+@media (max-width: 576px) {
   .container {
     margin: 0;
     border-radius: 24px;
     padding: 32px 24px;
-    height: 100dvh;
+    height: calc(100dvh - 85px);
+  }
+
+  .developerName {
+    writing-mode: unset;
+    position: unset;
   }
 }
