@@ -43,6 +43,10 @@ E2E testing with Cypress: tests user flow to ensure that applications behave as 
 
 ## Performance metrics:
 
+![Mobile](https://github.com/Yomna-Raouf/stock-market-app/blob/main/mobile-performance.png?raw=true)
+![Desktop](https://github.com/Yomna-Raouf/stock-market-app/blob/main/desktop-performance.png?raw=true)
+
+
 ## Running The app:
 
 - `npm install`
