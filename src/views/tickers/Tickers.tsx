@@ -50,6 +50,8 @@ const Tickers = () => {
                 setSearchToken(e.target.value);
               }}
             />
+
+            {/* Add filter to toggle active state */}
           </div>
 
           <div className={styles.listGrid}>
@@ -65,7 +67,7 @@ const Tickers = () => {
             })}
           </div>
           <div ref={loadMoreRef}></div>
-          {isFetchingNextPage ? <span> Loading...</span> : null}
+          {isFetchingNextPage && <span> Loading...</span>}
         </div>
       )}
     </>

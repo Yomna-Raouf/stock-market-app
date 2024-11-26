@@ -11,6 +11,7 @@ const MainLayout = () => {
       <div className={styles.container}>
         <Outlet />
       </div>
+      <p className={styles.developerName}>Yomna Raouf</p>
     </div>
   );
 };
