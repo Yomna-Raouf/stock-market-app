@@ -40,6 +40,7 @@ declare global {
   namespace Cypress {
     interface Chainable {
       dataQa: typeof dataQa;
+      stubRequest: typeof stubRequest;
     }
   }
 }
@@ -58,3 +59,59 @@ export const dataQa = (
 };
 
 Cypress.Commands.add('dataQa', dataQa);
+
+export enum RequestType {
+  POST = 'POST',
+  GET = 'GET',
+  PATCH = 'PATCH',
+  DELETE = 'DELETE',
+  PUT = 'PUT',
+}
+
+type InterceptorConfig = {
+  statusCode?: number;
+  forceNetworkError?: boolean;
+  delay?: number;
+  fixture?: string;
+};
+
+type StubRequest<ModifiedData> = {
+  type: RequestType;
+  url: RegExp;
+  fixture: string;
+  modifiedData: ModifiedData | null;
+  config: InterceptorConfig;
+  alias: string;
+};
+
+/**
+ * @name stubRequest
+ * @description Custom command to stub requests and handle modifying data
+ * @example cy.stubRequest(options)
+ * @param {StubRequest} options: configuration options for the request
+ */
+export function stubRequest<ModifiedData>({
+  type,
+  url,
+  fixture,
+  modifiedData = null,
+  config,
+  alias,
+}: StubRequest<ModifiedData>): Cypress.Chainable {
+  return cy.fixture(fixture).then((data) => {
+    if (modifiedData && Object.keys(modifiedData).length) {
+      Object.keys(modifiedData).forEach((key) => {
+        data[key] = modifiedData[key as keyof ModifiedData];
+      });
+    }
+
+    cy.intercept(type, url, (req) => {
+      req.reply({
+        body: data,
+        ...config,
+      });
+    }).as(alias);
+  });
+}
+
+Cypress.Commands.add('stubRequest', stubRequest);
